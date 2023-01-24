@@ -1,0 +1,146 @@
+* {
+    --color_blue: #5584AC;
+    --color_green: #8CC04D;
+}
+
+body {
+    margin: 0;
+    background-color: var(--color_blue);
+}
+
+a {
+    text-decoration: none;
+}
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: black;
+    height: 10vh;
+}
+
+nav a {
+    color: rgba(255,255,255,0.5);
+    font-size: 40px;
+}
+
+nav img {
+    height: 10vh;
+}
+
+.loupe {
+    height: 50px;
+}
+
+.loupe:hover {
+    cursor: pointer;
+}
+
+.navlink {
+    display: flex;
+    gap: 100px;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+}
+
+#navsearch {
+    color: white;
+    height: 60%;
+    width: 500px;
+    border-radius: 5px;
+    background-color: black;
+    padding: 10px;
+    font-size: 30px;
+    border: 1px solid white;
+    margin-left: -20%;
+}
+
+.dnone {
+    display: none;
+}
+
+.deco {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 10%;
+    right: 2.5%;
+    background-color: black;
+    border: 1px solid var(--color_green);
+    height: 100px;
+}
+
+.deco input {
+    background-color: #5584AC;
+    border: 1px solid black;
+    color: white;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-info p {
+    font-size: 20px;
+    color: white;
+}
+
+.user-img {
+    border: 2px solid var(--color_blue);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+nav h2 {
+    color: var(--color_blue);
+    font-size: 45px;
+    font-weight: bold;
+}
+
+.active {
+    color: white;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    background-color: #5584AC70;
+    align-items: center;
+}
+
+h3 {
+    font-size: 40px;
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    justify-content: space-around;
+}
+
+.card button {
+    color: white;
+    font-size: 20px;
+    width: 200px;
+    height: 30px;
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: var(--color_blue);
+}
+
+.card button:hover {
+    cursor: pointer;
+}
+
+.edit {
+    display: none;
+    margin-top: 30px;
+}
