@@ -30,7 +30,9 @@
         <div class="user-info">
             <p><?=$_SESSION['user']['utilisateur_prenom']?></p>
             <p><?=$_SESSION['user']['utilisateur_nom']?></p>
-            <img src="../image/user.svg" alt="" class="user-img">
+            <div class="user-div">
+                <img src="../avatars/<?=$_SESSION['user']['utilisateur_image']?>" alt="" class="user-img">
+            </div>
         </div>
     </nav>
 
@@ -56,6 +58,7 @@
                 <label for="form_temps">Temps</label>
                 <input type="text" name="form_temps">
                 <label for="form_cours">Cours</label>
+                <!-- <textarea name="form_cours" id="" cols="30" rows="10"></textarea> -->
                 <input type="text" name="form_cours">
                 <input type="submit" value="Ajouter">
                 <input type="hidden" value="1" name="form_inscription">
@@ -63,13 +66,13 @@
         </div>
         <div class="edit">
             <form action="../controllers/controller_inscription.php" method="post" >
-                <label for="form_titre">Chercher par titre</label>
+                <label for="form_titre">Modifier par titre</label>
                 <input type="text" name="form_titre">
             </form>
         </div>
         <div class="edit">
             <form action="../controllers/controller_inscription.php" method="post" >
-                <label for="form_titre">Chercher par titre</label>
+                <label for="form_titre">Supprimer par titre</label>
                 <input type="text" name="form_titre">
             </form>
         </div>
@@ -80,24 +83,24 @@
             <button>Supprimer</button>
         </div>
         <div class="edit">
-            <form action="../controllers/controller_inscription.php" method="post" >
+            <form>
                 <label for="form_nom">Nom</label>
-                <input type="text" name="form_nom">
-                <label for="form_prennom">Prénom</label>
-                <input type="text" name="form_prenom">
+                <input type="text" name="form_nom" id="form_nom">
+                <label for="form_prenom">Prénom</label>
+                <input type="text" name="form_prenom" id="form_prenom">
                 <label for="form_email">Email</label>
-                <input type="text" name="form_email">
-                <label for="form_password">Mot de passe</label>
-                <input type="password" name="form_password">
+                <input type="text" name="form_email" id="form_email">
+                <label for="form_mot_de_passe">Mot de passe</label>
+                <input type="password" name="form_mot_de_passe" id="form_mot_de_passe">
                 <label for="form_image">Avatar</label>
-                <input type="file" name="form_image">
-                <input type="submit" value="Ajouter">
+                <input type="file" name="form_image" id="form_image">
+                <a href="#" onclick="ajoutUtilisateur();">Ajouter</a>
                 <input type="hidden" value="1" name="form_inscription">
             </form>
         </div>
         <div class="edit">
             <form action="../controllers/controller_inscription.php" method="post" >
-                <label for="form_email">Chercher par email</label>
+                <label for="form_email">Modifier par email</label>
                 <input type="text" name="form_email">
                 <input type="submit" value="Supprimer">
                 <input type="hidden" value="1" name="form_inscription">
@@ -105,7 +108,7 @@
         </div>
         <div class="edit">
             <form action="../controllers/controller_inscription.php" method="post" >
-                <label for="form_email">Chercher par email</label>
+                <label for="form_email">Supprimer par email</label>
                 <input type="text" name="form_email">
                 <input type="submit" value="Supprimer">
                 <input type="hidden" value="1" name="form_inscription">
@@ -167,7 +170,27 @@
         </div>
     </main>
 
-    
+    <script>
+            async function ajoutUtilisateur() {
+                event.preventDefault();
+                var formData = new FormData();
+                formData.append('form_inscription', 1);
+                formData.append('form_nom', document.querySelector('#form_nom').value);
+                formData.append('form_prenom', document.querySelector('#form_prenom').value);
+                formData.append('form_email', document.querySelector('#form_email').value);
+                formData.append('form_mot_de_passe', document.querySelector('#form_mot_de_passe').value);
+                formData.append('form_image', document.querySelector('#form_image').files[0]);
+
+                await fetch("../controllers/controller_inscription.php", {
+                    method: "POST",
+                    body: formData
+                })
+                .then((response) => response.json())
+                .then((result) => {
+                   console.log(result);
+                });
+            }
+    </script>
     
 </body>
 

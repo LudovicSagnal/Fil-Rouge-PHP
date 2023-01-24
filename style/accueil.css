@@ -92,11 +92,20 @@ nav img {
     color: white;
 }
 
-.user-img {
+.user-div {
     border: 2px solid var(--color_blue);
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
     cursor: pointer;
 }
+
+.user-div img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit:cover;
+} 
 
 nav h2 {
     color: var(--color_blue);

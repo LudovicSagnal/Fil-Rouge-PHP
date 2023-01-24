@@ -30,7 +30,9 @@
         <div class="user-info">
             <p><?=$_SESSION['user']['utilisateur_prenom']?></p>
             <p><?=$_SESSION['user']['utilisateur_nom']?></p>
-            <img src="../image/user.svg" alt="" class="user-img">
+            <div class="user-div">
+                <img src="../avatars/<?=$_SESSION['user']['utilisateur_image']?>" alt="" class="user-img">
+            </div>
         </div>
     </nav>
 

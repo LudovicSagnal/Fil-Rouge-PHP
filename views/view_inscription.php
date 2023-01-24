@@ -19,7 +19,7 @@
         <input type="password" name="form_password">
         <!-- <input type="text"> -->
         <label for="form_image">Avatar</label>
-        <input type="text" name="form_image">
+        <input type="file" name="form_image">
         <input type="submit" value="S'inscrire">
         <input type="hidden" value="1" name="form_inscription">
     </form>
